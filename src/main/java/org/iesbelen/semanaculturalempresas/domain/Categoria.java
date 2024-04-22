@@ -21,8 +21,9 @@ public class Categoria {
     private long id;
     @Column(name = "nombre")
     private String nombre;
-
     @ManyToMany(
             mappedBy = "categoria")
     Set <Empresa> empresa = new HashSet<>();
+
+
 }

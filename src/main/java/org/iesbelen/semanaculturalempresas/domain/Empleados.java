@@ -18,6 +18,7 @@ public class Empleados {
     @Column(name = "id_empleado")
     private long idEmpleado;
     private String nombre;
-    @OneToMany(mappedBy = "empleados")
-    private List<Empresa> empresa;
+    @ManyToOne()
+    @JoinColumn(name = "id_empleado")
+    private Empresa empresas;
 }
