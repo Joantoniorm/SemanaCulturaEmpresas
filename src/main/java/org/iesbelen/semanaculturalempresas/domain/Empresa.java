@@ -38,4 +38,15 @@ public class Empresa {
 
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
     private List<Empleados> empleados;
+
+    @ManyToOne()
+    @JoinColumn(name = "empresas-calle")
+    private Calle calle;
+
+    @ManyToMany
+    @JoinTable(
+            name = "empresa_lenguaje",
+            joinColumns = @JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa"),
+            inverseJoinColumns = @JoinColumn(name = "id_lenguaje", referencedColumnName = "id_lenguaje"))
+    Set<Lenguaje> lenguaje = new HashSet<>();
 }
